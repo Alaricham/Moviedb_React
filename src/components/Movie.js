@@ -74,6 +74,9 @@ class Movie extends Component {
 }
 
 class TitleBlock extends Component {
+  state = {
+    progress: 0
+  }
   getCrew = ()=> {
     let crewInfo = {},
     block = [],
@@ -105,9 +108,10 @@ class TitleBlock extends Component {
 
 render() {
     let movie = this.props.data[0];
+    const radius = 40, dashArr = Math.PI * radius * 2, offset = (dashArr - dashArr * this.state.progress)
     return (
-    <div className="movie-block">
-      <Row>
+    <div id="movie-block" data-aos="set" data-aos-anchor-placement="top-center" >
+      <Row >
         <Col lg={3}>
       <img
       className='poster posterblock'
@@ -118,7 +122,15 @@ render() {
               display: "flex",
               borderRadius: "10px"
             }}/>
-            
+            <div className='rating'>
+            <svg className="svg-circles" width="110" height="110" >
+            <circle cx="55" cy="55" r={52} strokeWidth="12" stroke="#2d364" fill="#2d364e" />
+                    <circle cx="55" cy="55" r={radius} strokeWidth="12" stroke="#6a43e630" fill="none" />
+                    <circle cx="55" cy="55" r={radius} strokeWidth="12" stroke="#6a43e6" stroke-linecap= "round" fill="none" transform="rotate(270, 55, 55)"
+                        strokeDasharray={dashArr} strokeDashoffset={movie.vote_average*10} />
+                </svg>
+                <span id="text">{movie.vote_average*10}</span>
+            </div>
         </Col>
         <Col lg={9}>
       <h1>{movie.title}</h1>
@@ -143,11 +155,11 @@ render() {
 
     render () {
       return (
-        <div>
+        <div  >
           <h2 className='comp-name'><strong>Reviews</strong></h2>
           <Container>
             {this.props.reviews.map(review => 
-            <div className="reviews-block" key={Date.now()*Math.random()}>
+            <div className="reviews-block" data-aos="fadeInUp" key={Date.now()*Math.random()}>
               <h3>{review.author}</h3>
               <p>{review.content}</p>
               <hr className="hrline"/>
@@ -162,7 +174,7 @@ render() {
 
     render () {
       return (
-        <div>
+        <div data-aos="bounceIn">
           <h2 className='comp-name'>
             <strong>Trailers</strong>
           </h2>
@@ -185,7 +197,7 @@ render() {
   class Media extends Component {
     render () {
       return (
-        <div>
+        <div data-aos="bounceIn">
           <h2 className='comp-name'>
             <strong>Media</strong>
           </h2>

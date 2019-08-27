@@ -18,7 +18,7 @@ class Footer extends Component {
           }}
         >
           <Col className="footer">
-            <Row>
+            <Row data-aos='info' >
               <Col
                 lg={3}
                 style={{
@@ -38,7 +38,7 @@ class Footer extends Component {
               </Col>
             </Row>
           </Col>
-          <Col style={{ textAlign: "center" }}>
+          <Col data-aos='logos' style={{ textAlign: "center" }}>
             <img
               style={{ width: "300px", height: "auto" }}
               src={process.env.PUBLIC_URL + "/tmdblogo.png"}

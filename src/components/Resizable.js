@@ -40,11 +40,11 @@ class Resizable extends Component {
         speed: 500,
         slidesToShow: 5,
         slidesToScroll: 1,
-        prevArrow: <Icon icon={faAngleLeft} classes={"arr-left"} />,
-        nextArrow: <Icon icon={faAngleRight} classes={"arr-right"} />
+        prevArrow: <Icon icon={faAngleLeft} classes={"arr-left"} anim='left' />,
+        nextArrow: <Icon icon={faAngleRight} classes={"arr-right"} anim='right' />
       };
       return (
-        <div style={{ margin: "40px auto", padding: "0 10%" }}>
+        <div data-aos="resizable" style={{ margin: "40px auto", padding: "0 10%" }}>
           <h2>
             <strong>{this.props.name}</strong>
           </h2>
@@ -61,6 +61,7 @@ class Resizable extends Component {
                 <Card
                 key={Date.now()*Math.random()}
                   {...this.props}
+                  time={index*500}
                   data={{ movie, index }}
                   getGenre={this.props.getGenre}
                   getAll={this.props.getAll}

@@ -12,6 +12,16 @@ import "slick-carousel/slick/slick.css";
 import "./App.css";
 import { Switch, Route } from "react-router";
 import {withRouter} from 'react-router-dom';
+import AOS from 'aos';
+import 'aos/dist/aos.css'; 
+import 'animate.css'
+AOS.init({
+  useClassNames: true,
+  initClassName: false,
+  animatedClassName: 'animated',
+  once: true,
+  
+});
 
 let apiKey = "f3a6cc0c6cfed6c1ff08e2a69df6d75c";
 
@@ -49,11 +59,9 @@ class App extends Component {
 
   componentDidUpdate (prevProps) {
     if(prevProps.location.pathname !== this.props.location.pathname && this.props.location.pathname !== '/') {
-      console.log('change')
       this.setState({fade: false});
     }
   }
-
 
   componentWillUnmount () {
     window.removeEventListener('DOMContentLoaded', this.setState({ready: true}))

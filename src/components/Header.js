@@ -62,7 +62,7 @@ class Header extends Component {
     render() {
       return (
         <div style={{ height: this.state.height, maxHeight: '100vh' }}>
-          <Carousel indicators={false}>{this.setCarousel()}</Carousel>
+          <Carousel indicators={false} controls={false}>{this.setCarousel()}</Carousel>
         </div>
       );
     }

@@ -10,7 +10,7 @@ class NaviBar extends Component {
   }
   render() {
     return (
-      <Navbar expand="lg" fixed="top">
+      <Navbar expand="lg" fixed="top" >
         <Navbar.Brand href="#home" />
         <div className='logo-bg'><FontAwesomeIcon icon={faFilm} className={'logo'} onClick={()=> {this.props.history.push('/');}} /></div>
         <Navbar.Collapse

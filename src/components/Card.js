@@ -9,9 +9,10 @@ class Card extends Component {
     }
 
     render() {
-      let { movie, index } = this.props.data;
+      let { movie, index, time=50 } = this.props.data;
       return (
         <div
+        data-aos="resizable"
         key={Date.now()*Math.random()}
           ref={this.id}
           data-id={movie.id ? movie.id : index }
