@@ -51,5 +51,5 @@
     "@fortawesome/free-solid-svg-icons": "^5.10.1",
     "@fortawesome/react-fontawesome": "^0.1.4"
   },
-  "proxy": "http://localhost:3000"
+  "proxy": "http://localhost:process.env.PORT"
 }
