@@ -42,7 +42,7 @@ class App extends Component {
 
   componentDidMount() {
     this.setState({ready: false})
-    axios.get(`http://localhost:${REACT_APP_PORT}/main`).then(results => {
+    axios.get(`http://localhost:${process.env.REACT_APP_PORT}/main`).then(results => {
       let data = results.data
       let hashMap = {};
           data['genres'].forEach(genre => {
@@ -94,7 +94,7 @@ class App extends Component {
 
   getAll = id => {
     this.setState({ready: false})
-    axios.get(`http://localhost:${REACT_APP_PORT}/movie?id=${id}`).then(results => {
+    axios.get(`http://localhost:${process.env.REACT_APP_PORT}/movie?id=${id}`).then(results => {
       let data = results.data;
       this.setState({ movie: data, ready: true });
     });
@@ -102,7 +102,7 @@ class App extends Component {
 
   getSearch = (type, name) => {
     this.setState({ready: false})
-    axios.get(`http://localhost:${REACT_APP_PORT}/search?search=${name}`).then(results => {
+    axios.get(`http://localhost:${process.env.REACT_APP_PORT}/search?search=${name}`).then(results => {
       let data = results.data;
       this.setState({ [type]: data, ready: true });
     });
