@@ -25,19 +25,19 @@ AOS.init({
 });
 
 let links =  {
-  now_playing: `https://api.themoviedb.org/3/movie/now_playing?api_key=${REACT_APP_KEY}&language=en-US&page=1`,
-  upcoming: `https://api.themoviedb.org/3/movie/upcoming?api_key=${REACT_APP_KEY}&language=en-US&page=1`,
-  top_rated: `https://api.themoviedb.org/3/movie/top_rated?api_key=${REACT_APP_KEY}&language=en-US&page=1`,
-  popular: `https://api.themoviedb.org/3/movie/popular?api_key=${REACT_APP_KEY}&language=en-US&page=1`,
-  genres: `https://api.themoviedb.org/3/genre/movie/list?api_key=${REACT_APP_KEY}&language=en-US`
+  now_playing: `https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.REACT_APP_KEY}&language=en-US&page=1`,
+  upcoming: `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.REACT_APP_KEY}&language=en-US&page=1`,
+  top_rated: `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.REACT_APP_KEY}&language=en-US&page=1`,
+  popular: `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.REACT_APP_KEY}&language=en-US&page=1`,
+  genres: `https://api.themoviedb.org/3/genre/movie/list?api_key=${process.env.REACT_APP_KEY}&language=en-US`
 };
 
 let getmovieLinks = id => ({
-  url: `https://api.themoviedb.org/3/movie/${id}?api_key=${REACT_APP_KEY}&append_to_response=videos`,
-  video: `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${REACT_APP_KEY}&language=en-US`,
-  cast: `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${REACT_APP_KEY}`,
-  images: `https://api.themoviedb.org/3/movie/${id}/images?api_key=${REACT_APP_KEY}`,
-  reviews: `https://api.themoviedb.org/3/movie/${id}/reviews?api_key=${REACT_APP_KEY}&language=en-US`
+  url: `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.REACT_APP_KEY}&append_to_response=videos`,
+  video: `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${process.env.REACT_APP_KEY}&language=en-US`,
+  cast: `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${process.env.REACT_APP_KEY}`,
+  images: `https://api.themoviedb.org/3/movie/${id}/images?api_key=${process.env.REACT_APP_KEY}`,
+  reviews: `https://api.themoviedb.org/3/movie/${id}/reviews?api_key=${process.env.REACT_APP_KEY}&language=en-US`
 });
 
 
@@ -140,7 +140,7 @@ class App extends Component {
 
   search = (event, name) => {
     if (event.target.type === "button" || event.key === "Enter") {
-      let link = `https://api.themoviedb.org/3/search/movie?api_key=${REACT_APP_KEY}&language=en-US&query=${name}&page=1&include_adult=false`;
+      let link = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_KEY}&language=en-US&query=${name}&page=1&include_adult=false`;
       this.getSearch("search", link);
     }
   };
